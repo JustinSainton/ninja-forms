@@ -16,7 +16,7 @@ define( [], function() {
             var wordCount = words.length;
             var charCount = value.length;
 
-            if ( 'char' == this.model.get( 'input_limit_type' ) ) {
+            if ( 'characters' == this.model.get( 'input_limit_type' ) ) {
                 jQuery( el ).attr( 'maxlength', this.model.get( 'input_limit' ) );
                 this.count = this.model.get( 'input_limit' ) - charCount;
             } else {
