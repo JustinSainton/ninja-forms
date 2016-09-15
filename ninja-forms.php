@@ -475,7 +475,7 @@ if( get_option( 'ninja_forms_load_deprecated', FALSE ) && ! ( isset( $_POST[ 'nf
 	     */
         public function update_settings( $settings = array() )
         {
-            if( ! is_array( $this->settings ) ) $this->settings = array( $this->settings );
+            if( ! is_array( $this->settings ) ) $this->settings = array();
 
             if( $settings && is_array( $settings ) ) {
                 $this->settings = array_merge($this->settings, $settings);
