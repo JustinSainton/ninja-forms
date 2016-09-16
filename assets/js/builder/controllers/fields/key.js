@@ -95,7 +95,10 @@ define( [], function() {
 		},
 
 		keyExists: function( key, dataModel ) {
-			key = jQuery.slugify( key, { separator: '_' } );
+			var newKey = jQuery.slugify( key, { separator: '_' } );
+			if ( 0 != newKey.length ) {
+				key = newKey;
+			}
 			var fieldCollection = nfRadio.channel( 'fields' ).request( 'get:collection' );
 			var x = 1;
 			var testKey = key;
@@ -105,6 +108,7 @@ define( [], function() {
 					x++;
 				}
 			} );
+			
 			key = testKey;
 
 			return key;

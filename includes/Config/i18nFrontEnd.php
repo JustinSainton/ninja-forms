@@ -17,5 +17,5 @@ return apply_filters( 'ninja_forms_i18n_front_end', array(
     'fileUploadOldCodeFileUploadInProgress' => __( 'File Upload in Progress.', 'ninja-forms' ),
     'fileUploadOldCodeFileUpload' => __( 'FILE UPLOAD', 'ninja-forms' ),
     'currencySymbol'   => Ninja_Forms()->get_setting( 'currency_symbol' ),
-    'fieldsMarkedRequired' => sprintf( __( 'Fields marked with a %s*%s are required', 'ninja-forms' ), '<span class="ninja-forms-req-symbol">', '</span>' )
+    'fieldsMarkedRequired' => sprintf( __( 'Fields marked with an %s*%s are required', 'ninja-forms' ), '<span class="ninja-forms-req-symbol">', '</span>' )
 ));

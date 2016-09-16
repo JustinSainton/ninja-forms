@@ -10,6 +10,10 @@ define([], function() {
 			// Instantiates the variable that holds the media library frame.
 			this.meta_image_frame;
 
+			this.currentContext = {};
+
+			if( 'undefined' == typeof jQuery.summernote ) return;
+
 			jQuery.summernote.options.icons = {
 		        'align': 'dashicons dashicons-editor-alignleft',
 		        'alignCenter': 'dashicons dashicons-editor-aligncenter',
@@ -49,9 +53,7 @@ define([], function() {
 		        'undo': 'dashicons dashicons-undo',
 		        'unorderedlist': 'dashicons dashicons-editor-ul',
 		        // 'video': 'dashicons fa-youtube-play'
-		      }
-
-		      this.currentContext = {};
+		      };
 
 		},
 

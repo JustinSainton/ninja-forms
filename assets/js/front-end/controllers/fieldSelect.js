@@ -36,12 +36,19 @@ define([], function() {
 					 * We don't have a selected value, so use our first option.
 					 */
 					if ( 'undefined' == typeof selected ) {
-						selected = model.get( 'options' )[0];
+						selected = _.first( model.get( 'options' ) );
 					}
-					var value = selected.value;
+
+					if ( 'undefined' != typeof selected && 'undefined' != typeof selected.value ) {
+						var value = selected.value;
+					} else if ( 'undefined' != typeof selected ) {
+						var value = selected.label;
+					}	
 				}
 
-				model.set( 'value', value );
+				if ( 'undefined' != typeof selected ) {
+					model.set( 'value', value );
+				}
 			}
 		},
 

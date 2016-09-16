@@ -20,14 +20,10 @@ define([], function() {
 				 * Check to see if we have a selected value.
 				 */
 				var selected = _.find( model.get( 'options' ), function( opt ) { return 1 == opt.selected } );
-				/*
-				 * We don't have a selected value, so use our first option.
-				 */
-				if ( 'undefined' == typeof selected ) {
-					selected = model.get( 'options' )[0];
-				}
 
-				model.set( 'value', selected.value );
+				if ( 'undefined' != typeof selected ) {
+					model.set( 'value', selected.value );
+				}
 			}
 		},
 
@@ -66,12 +62,14 @@ define([], function() {
 				option.index = index;
 
 				/*
-				 * TODO: Is this still needed? Found in a merge conflict.
+				 * If we haven't edited this field yet, use the default checked
 				 */
 				if ( this.clean && 1 == this.selected ) {
 					option.selected = true;
 				} else if ( this.value == option.value ) {
 					option.selected = true;
+				} else {
+					option.selected = false;
 				}
 
 				var template = nfRadio.channel( 'app' ).request( 'get:template',  '#tmpl-nf-field-listradio-option' );
